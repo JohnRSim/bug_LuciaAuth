@@ -11,9 +11,6 @@ export async function POST({ locals }) {
 	//if no session should redirect back to homepage.
 	} else {
 		//302:no session detected
-		return new Response(null, {
-			status: 302,
-			headers: { location: '/login'},
-		});
+		return new Response(JSON.stringify({failed:true}));
 	}
 }
